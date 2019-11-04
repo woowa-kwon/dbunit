@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id "org.flywaydb.flyway" version "6.0.8"
+}
+
+group = 'woowa.dbunit'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'mysql:mysql-connector-java'
+    compileOnly 'org.projectlombok:lombok'
+
+    testCompile group: 'org.dbunit', name: 'dbunit', version: '2.6.0'
+    testCompile group: 'com.github.springtestdbunit', name: 'spring-test-dbunit', version: '1.3.0'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    annotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+flyway {
+    url = "jdbc:mysql://localhost:3306/dbunit"
+    user = "root"
+    password = "root"
+    encoding = 'UTF-8'
+    outOfOrder = true
+    validateOnMigrate = true
+}

@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dbunit
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+        use_sql_comments: true
+        hbm2ddl.auto: validate
+
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate:
+      SQL: debug
+      tool.hbm2ddl: debug
+      type: trace
+      stat: debug
+      type.BasicTypeRegistry: warn
