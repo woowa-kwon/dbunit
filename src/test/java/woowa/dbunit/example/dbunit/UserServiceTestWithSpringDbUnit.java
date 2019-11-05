@@ -33,7 +33,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 })
 @DbUnitConfiguration(databaseConnection = "dbUnitDatabaseConnection")
 @DatabaseSetup(value = "dataset.xml", type = DatabaseOperation.CLEAN_INSERT)
-//@DatabaseTearDown(value = "dataset.xml", type = DatabaseOperation.DELETE_ALL)
+@DatabaseTearDown(value = "dataset.xml", type = DatabaseOperation.DELETE_ALL)
 public class UserServiceTestWithSpringDbUnit {
 
     @Autowired
