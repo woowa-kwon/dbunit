@@ -32,8 +32,8 @@ import static org.assertj.core.api.Assertions.assertThat;
                                                     // @DatabaseTearDown 선언시 DbUnitTestExecutionListener 와 함께 사용할 수 없다.
 })
 @DbUnitConfiguration(databaseConnection = "dbUnitDatabaseConnection")
-@DatabaseSetup(value = "dataset.xml", type = DatabaseOperation.CLEAN_INSERT)
-@DatabaseTearDown(value = "dataset.xml", type = DatabaseOperation.DELETE_ALL)
+@DatabaseSetup(value = {"company.xml", "user.xml"}, type = DatabaseOperation.CLEAN_INSERT)
+@DatabaseTearDown(value = {"company.xml", "user.xml"}, type = DatabaseOperation.DELETE_ALL)
 public class UserServiceTestWithSpringDbUnit {
 
     @Autowired

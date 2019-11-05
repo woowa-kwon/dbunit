@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <company company_id="12345" name="company12345" />
+    <company company_id="23456" name="company23456" />
+</dataset>
