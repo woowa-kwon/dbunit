@@ -3,6 +3,6 @@
     <company company_id="12345" name="company12345" />
     <company company_id="23456" name="company23456" />
 
-    <user user_id="676" name="name1" password="pass111" company_id="23456" />
     <user user_id="675" name="name1" password="pass111" email="user1@email.com" company_id="23456" />
+    <user user_id="676" name="name1" password="pass111" company_id="23456" />
 </dataset>
