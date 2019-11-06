@@ -63,21 +63,21 @@ public class UserServiceTestWithSpringDbUnit {
                 .companyId(23456L)
                 .build();
 
-        User result1 = userService.register(userDto1);
-        User result2 = userService.register(userDto2);
+        User savedUser1 = userService.register(userDto1);
+        User savedUser2 = userService.register(userDto2);
 
-        User actual1 = userRepository.findById(result1.getId()).get();
-        User actual2 = userRepository.findById(result2.getId()).get();
+        User actual1 = userRepository.findById(savedUser1.getId()).get();
+        User actual2 = userRepository.findById(savedUser2.getId()).get();
 
-        assertThat(result1.getEmail()).isEqualTo(actual1.getEmail());
-        assertThat(result1.getPassword()).isEqualTo(actual1.getPassword());
-        assertThat(result1.getName()).isEqualTo(actual1.getName());
-        assertThat(result1.getCompany().getId()).isEqualTo(12345L);
+        assertThat(actual1.getEmail()).isEqualTo(userDto1.getEmail());
+        assertThat(actual1.getPassword()).isEqualTo(userDto1.getPassword());
+        assertThat(actual1.getName()).isEqualTo(userDto1.getName());
+        assertThat(actual1.getCompany().getId()).isEqualTo(12345L);
 
-        assertThat(result2.getEmail()).isEqualTo(actual2.getEmail());
-        assertThat(result2.getPassword()).isEqualTo(actual2.getPassword());
-        assertThat(result2.getName()).isEqualTo(actual2.getName());
-        assertThat(result2.getCompany().getId()).isEqualTo(23456L);
+        assertThat(actual2.getEmail()).isEqualTo(userDto2.getEmail());
+        assertThat(actual2.getPassword()).isEqualTo(userDto2.getPassword());
+        assertThat(actual2.getName()).isEqualTo(userDto2.getName());
+        assertThat(actual2.getCompany().getId()).isEqualTo(23456L);
     }
 
 }
